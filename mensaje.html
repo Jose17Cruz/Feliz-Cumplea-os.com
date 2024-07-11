@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Silvia Vilchis</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        @keyframes snow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 1em;
+            opacity: 0.9;
+            color: white;
+            animation: snow linear infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            animation: pulse 2s infinite;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .carta {
+            width: 90%;
+            max-width: 600px;
+            background-color: rosybrown;
+            border: 2px solid aqua;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .cabecera h1 {
+            color: red;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .contenido {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .firma {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .firma p {
+            font-style: italic;
+            color: green;
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 600px) {
+            .carta {
+                width: 95%;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart top-left"></div>
+    <div class="heart top-right"></div>
+    <div class="heart bottom-left"></div>
+    <div class="heart bottom-right"></div>
+
+    <div class="carta">
+        <div class="cabecera">
+            <h1>¡Feliz Cumpleaños, Silvia Vilchis!</h1>
+            <p>Con todo mi cariño 💖🎉...</p>
+        </div>
+        <div class="contenido">
+            <p>Querida Silvia,</p>
+            <p>En este día tan especial, quiero desearte un cumpleaños lleno de amor y alegría. Eres una persona increíble y te mereces todo lo mejor en la vida.</p>
+            <p>Tus valores, tu sabiduría y tu bondad hacen del mundo un lugar mejor. Agradezco mucho todo el cariño y apoyo que nos brindas. Que este día esté lleno de momentos especiales y que tengas un año lleno de éxitos y felicidad.</p>
+            <p>¡Feliz Cumpleaños, Silvia! Que te la pases bien en este día 💖🎂🌹,</p>
+        </div>
+        <div class="firma">
+            <p>José Antonio Cruz</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to create snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.innerHTML = '&#10052;'; // Unicode character for snowflake
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5 to 10 seconds
+
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after it falls
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000); // matches animation duration
+        }
+
+        // Create snowflakes at intervals
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+</html>
